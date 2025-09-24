@@ -6,10 +6,11 @@ import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import utils.TestConfig
 import java.util.concurrent.TimeUnit
 
 object RetrofitBuilder {
-    private const val BASE_URL = "https://petstore.swagger.io/v2/" //TODO: add res file
+    private val BASE_URL = TestConfig.baseUrl
 
     private val moshi: Moshi = Moshi.Builder()
         .add(KotlinJsonAdapterFactory())
@@ -31,7 +32,7 @@ object RetrofitBuilder {
         .addConverterFactory(MoshiConverterFactory.create(moshi))
         .build()
 
-    val petStoreApiService: PetStoreApiService by lazy {
-        retrofit.create(PetStoreApiService::class.java)
+    val petApiService: PetApiService by lazy {
+        retrofit.create(PetApiService::class.java)
     }
 }

@@ -1,12 +1,11 @@
 package api
 
-import model.Pet
+import model.pet.Pet
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.*
-import retrofit2.Response
 
-interface PetStoreApiService {
+interface PetApiService {
     @GET("pet/findByStatus")
     fun findPetsByStatus(
         @Query("status") status: String
@@ -29,7 +28,8 @@ interface PetStoreApiService {
 
     @DELETE("pet/{petId}")
     fun deletePet(
-        @Path("petId") petId: Long
+        @Path("petId") petId: Long,
+        @Header("api_key") apiKey: String? = null // Добавляем параметр для заголовка
     ): Call<ResponseBody>
 
 }

@@ -1,4 +1,4 @@
-package model
+package model.pet
 
 import kotlinx.serialization.Serializable
 

@@ -1,7 +1,7 @@
 package utils
 
-import model.Pet
-import model.Tag
+import model.pet.Category
+import model.pet.Pet
 import kotlin.math.abs
 import kotlin.random.Random
 
@@ -13,10 +13,14 @@ object PetUtils {
     ): Pet {
         return Pet(
             id = id,
+            category = Category(id=0, name="string"),
             name = name,
             photoUrls = listOf("https://example.com/photo1.jpg"),
-            tags = listOf(Tag(name = "tag${Random.nextInt(100)}")),
+            tags = listOf(),
             status = status
         )
+    }
+    fun comparePetContent(pet1: Pet, pet2: Pet): Boolean {
+        return pet1.copy(id=0) == pet2.copy(id=0)
     }
 }
