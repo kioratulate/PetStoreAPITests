@@ -2,6 +2,7 @@ package tests.pet
 
 import api.RetrofitBuilder
 import model.pet.Pet
+import model.pet.PetStatus
 import org.junit.jupiter.api.*
 import utils.PetUtils
 import utils.TestConfig
@@ -14,7 +15,7 @@ class FlakyDeletePetTest {
     private val apiKey = TestConfig.apiKey
     @BeforeAll
     fun `create a pet`() {
-        val newPet = PetUtils.generatePet(name = "Барсик", status = "available")
+        val newPet = PetUtils.generatePet(name = "Барсик", status = PetStatus.available)
         val createCall = apiService.addPet(newPet)
         val createResponse = createCall.execute()
 

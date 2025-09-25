@@ -1,6 +1,7 @@
 package api
 
 import model.pet.Pet
+import model.pet.PetStatus
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.*
@@ -8,7 +9,7 @@ import retrofit2.http.*
 interface PetApiService {
     @GET("pet/findByStatus")
     fun findPetsByStatus(
-        @Query("status") status: String
+        @Query("status") vararg status: PetStatus
     ): Call<List<Pet>>
 
     @GET("pet/{petId}")

@@ -2,10 +2,10 @@ package tests.pet
 
 import api.RetrofitBuilder
 import model.pet.Pet
+import model.pet.PetStatus
 import org.junit.jupiter.api.*
 import utils.PetUtils
 import org.junit.jupiter.api.TestInstance.Lifecycle
-import kotlin.jvm.Throws
 
 @TestInstance(Lifecycle.PER_CLASS)
 class FlakyFindPetTest {
@@ -15,7 +15,7 @@ class FlakyFindPetTest {
 
     @BeforeAll
     fun `create a pet`() {
-        val newPet = PetUtils.generatePet(name = "Барсик", status = "available")
+        val newPet = PetUtils.generatePet(name = "Барсик", status = PetStatus.available)
         val createCall = apiService.addPet(newPet)
         val createResponse = createCall.execute()
 

@@ -7,5 +7,12 @@ data class Pet(
     val name: String? = null,
     val photoUrls: List<String>,
     val tags: List<Tag>? = null,
-    val status: String // available, pending, sold //TODO: enum
+    val status: PetStatus
 )
+
+@Serializable
+enum class PetStatus {
+    available,
+    pending,
+    sold
+}
