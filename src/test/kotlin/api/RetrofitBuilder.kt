@@ -35,4 +35,7 @@ object RetrofitBuilder {
     val petApiService: PetApiService by lazy {
         retrofit.create(PetApiService::class.java)
     }
+    val storeApiService: StoreApiService by lazy {
+        retrofit.create(StoreApiService::class.java)
+    }
 }
